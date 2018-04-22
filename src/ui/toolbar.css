@@ -1,0 +1,25 @@
+.toolbar {
+	position: fixed;
+	z-index: 10;
+}
+
+.toolbar button {
+	border: 0;
+	background: white;
+}
+
+.toolbar button:hover {
+	background: lightgrey;
+}
+
+.toolbar button:active {
+	background: grey;
+}
+
+.toolbar div {
+	display:inline;
+}
+
+.toolbar .separator{
+
+}

@@ -1,0 +1,13 @@
+{
+	"keymap": {
+        "addchild"   : 45,
+        "addbrother" : 13,
+        "editnode"   : 113,
+        "delnode"    : 46,
+        "toggle"     : 32,
+        "left"       : 37,
+        "up"         : 38,
+        "right"      : 39,
+        "down"       : 40
+	}
+}
