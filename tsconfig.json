@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "rootDir": ".",
+        "outDir": "out",
+
+        "module": "umd",
+        "target": "es5",
+
+        "sourceMap": false,
+
+        "removeComments": true
+    },
+    "include": [
+        "src/*.ts",
+        "test/**/*.ts"
+    ],
+    "exclude": [
+        ".gulp",
+        ".vscode-test",
+        ".vscode",
+        "bin",
+        "lib",
+        "node_modules",
+        "out"
+    ]
+}
