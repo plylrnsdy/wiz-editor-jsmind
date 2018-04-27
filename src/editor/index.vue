@@ -1,4 +1,9 @@
 <style lang="scss">
+body,
+jmnode {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
 .el-header {
   height: 34px !important;
 
@@ -42,12 +47,12 @@
     <el-dialog title="设置" :visible.sync="setting.visible" width="400">
       <el-table size="mini" :data="setting.keybinds" style="width: 100%">
         <el-table-column prop="operation" label="操作" width="180"></el-table-column>
-        <el-table-column prop="key" label="快捷键" width="180"></el-table-column>
+        <el-table-column prop="key" label="快捷键 (暂不可更改)" width="180"></el-table-column>
       </el-table>
-      <div slot="footer" class="dialog-footer">
+      <!--<div slot="footer" class="dialog-footer">
         <el-button size="mini" @click="setting.visible = false">取 消</el-button>
         <el-button size="mini" @click="saveSetting" type="primary">应 用</el-button>
-      </div>
+      </div>-->
     </el-dialog>
 
     <el-dialog title="关于" :visible.sync="about_visible" width="200">
@@ -83,7 +88,6 @@ import { faSave, faCogs, faInfo } from '@fortawesome/fontawesome-free-solid';
 import jsMind = require('jsmind');
 import 'jsmind/js/jsmind.draggable.js';
 import 'jsmind/style/jsmind.css';
-import { format } from 'util';
 import * as data from './data-loader';
 
 let jm = null;
@@ -139,8 +143,8 @@ export default Vue.extend({
             jm.set_theme(this.theme);
         },
         resize() {
-            // this.size = format('width:%dpx;height:%dpx;', window.innerWidth - 16, window.innerHeight - 50);
-            this.size = format('width:%dpx;height:%dpx;', window.innerWidth - 48, window.innerHeight - 90);
+            // this.size = `width:${window.innerWidth - 16}px;height:${window.innerHeight - 50}px;`;
+            this.size = `width:${window.innerWidth - 48}px;height:${window.innerHeight - 90}px;`;
         },
         saveSetting() {
             let setting = {};

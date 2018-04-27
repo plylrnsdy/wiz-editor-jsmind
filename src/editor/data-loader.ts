@@ -14,6 +14,7 @@ if (editable) {
     let $db = $wiz.database(query['kbguid']),
         $doc = $db.document(query['guid']);
 
+    document.title = '编辑 ' + $doc.title().replace(/\.jm$/, '');
     docStr = $doc.html() as string;
 
     saveSetting = function (setting: object) {
