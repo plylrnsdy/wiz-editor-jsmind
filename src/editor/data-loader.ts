@@ -1,6 +1,11 @@
+/// <reference path="../../node_modules/@types/node/index.d.ts" />
+
 import * as $wiz from './wiz';
 import adapt from './adapter';
 import * as utils from './utils';
+const { version: _version } = require('../../package.json');
+
+export const version: string = _version;
 
 let query = utils.queryObject(window.location.href);
 export const editable = query['mode'] == 'edit';
@@ -11,8 +16,8 @@ export let saveMindmap = noop as (theme: string, mindmap: object) => void;
 
 let docStr;
 if (editable) {
-    let $db = $wiz.database(query['kbguid']),
-        $doc = $db.document(query['guid']);
+    let $db = $wiz.database(query['kbguid'] as string),
+        $doc = $db.document(query['guid'] as string);
 
     document.title = '编辑 ' + $doc.title().replace(/\.jm$/, '');
     docStr = $doc.html() as string;

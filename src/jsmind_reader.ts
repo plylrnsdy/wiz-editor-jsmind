@@ -1,6 +1,6 @@
 /// <reference path="../typings/wiz.d.ts" />
 
-class Reader {
+class JsMindReader {
     private name: string;
     private thisPluginDir: string;
     private thisFileName: string;
@@ -62,7 +62,7 @@ class Reader {
     try { // in Global
         function handleDocumentComplete(arg: HTMLDocument | IWizDocument | IWizChromeBrowser) {
             let doc: HTMLDocument,
-                reader = new Reader(objApp);
+                reader = new JsMindReader(objApp);
             if (!arg || !('title' in arg) || 'GUID' in arg) { // ^4.4
                 doc = objWindow.CurrentDocumentHtmlDocument;
             } else { // ^4.2
@@ -73,7 +73,7 @@ class Reader {
             } else { // ^4.5
                 let browser = arg as IWizChromeBrowser;
                 browser.ExecuteScriptFile(reader.path, (retValue) => {
-                    browser.ExecuteFunction1('initApp', objApp, (retValue) => { });
+                    browser.ExecuteFunction1('initJsMind', objApp, (retValue) => { });
                 });
             }
         }
@@ -87,9 +87,9 @@ class Reader {
     }
 })();
 
-function initApp(app) { // in Browser
+function initJsMind(app) { // in Browser
     // 不能定义全局变量，要对 window['variable'] 赋值
     window['objApp'] = app;
     // new Reader(window.external as IWizHtmlEditorApp).render(document);
-    new Reader(objApp).render(document);
+    new JsMindReader(objApp).render(document);
 }

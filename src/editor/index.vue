@@ -56,15 +56,23 @@ jmnode {
     </el-dialog>
 
     <el-dialog title="关于" :visible.sync="about_visible" width="200">
-      <h2>wiz.editor.jsmind</h2>
-      <p>插件版本：0.3.11</p>
+      <h2>wiz-editor-jsmind</h2>
+      <p>插件版本：{{ version }}</p>
       <p>插件作者：plylrnsdy</p>
       <h3>开源组件：</h3>
       <ul>
-        <li>Font Awesome</li>
-        <li>Element-UI</li>
-        <li>jsMind</li>
-        <li>Vue.js</li>
+        <li>
+          <a href="http://www.fontawesome.io">Font Awesome</a>
+        </li>
+        <li>
+          <a href="http://element-cn.eleme.io">Element-UI</a>
+        </li>
+        <li>
+          <a href="https://github.com/hizzgdev/jsmind">jsMind</a>
+        </li>
+        <li>
+          <a href="https://vuejs.org/">Vue.js</a>
+        </li>
       </ul>
       <h3>
         <a href="https://github.com/plylrnsdy/wiz-editor-jsmind/blob/master/docs/README.md">使用帮助</a>
@@ -96,7 +104,7 @@ export default Vue.extend({
     data() {
         let keymap = data.setting.keymap;
         return {
-            size: '',
+            version: data.version,
             editable: data.editable,
             theme: data.theme,
             themes: [
@@ -130,7 +138,8 @@ export default Vue.extend({
                     { name: 'down', operation: '选择右边第一个节点', key: keymap.down }
                 ]
             },
-            about_visible: false
+            about_visible: false,
+            size: '',
         };
     },
     computed: {

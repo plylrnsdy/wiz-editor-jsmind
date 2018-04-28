@@ -17,12 +17,26 @@ Wiz.Editor.jsMind 是一个基于 [jsMind][jsmind] 构建的为知笔记 思维�
 - 通过 [Github][releases] 下载插件包
 - 双击插件包即可安装
 
-## 更新日志
-[Change Logs](./CHANGELOG.md)
-
 ## FAQ
 Q：在 PC 上能查看 jm 导图，在手机端却只能看到文字。
 A：jm 导图目前依赖插件渲染，无法单独查看。
+
+## 开发
+
+Clone 项目并安装开发依赖：
+
+    git clone https://github.com/plylrnsdy/wiz-editor-jsmind
+    cd wiz-editor-jsmind
+    npm install
+
+构建项目：
+
+    gulp wiz-build
+
+插件生成到 out/src 中，将其中的文件复制到 `%My Knowledge%/Plugins/Wiz.Editor.jsMind` 下，运行 Wiz 就可以使用了。
+
+## 更新日志
+[Change Logs](./CHANGELOG.md)
 
 ## 问题
 如果你发现任何 Bug，或者有其他相关问题，可以提交 [问题][issues]。
