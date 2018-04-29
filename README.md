@@ -19,10 +19,10 @@ Wiz.Editor.jsMind 是一个基于 [jsMind][jsmind] 构建的为知笔记 思维�
 
 ## FAQ
 Q：在 PC 上能查看 jm 导图，在手机端却只能看到文字。
+
 A：jm 导图目前依赖插件渲染，无法单独查看。
 
 ## 开发
-
 Clone 项目并安装开发依赖：
 
     git clone https://github.com/plylrnsdy/wiz-editor-jsmind
@@ -46,6 +46,7 @@ Clone 项目并安装开发依赖：
 
 ## 关于
 作者：plylrnsdy
+
 Github：[wiz-editor-jsmind][repository]
 
 ## License

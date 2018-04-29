@@ -1,1 +1,1 @@
-gulp wiz-build-watch
+gulp wiz-build-dev-watch

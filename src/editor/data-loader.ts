@@ -1,4 +1,4 @@
-/// <reference path="../../node_modules/@types/node/index.d.ts" />
+/// <reference path="../../typings/require.d.ts" />
 
 import * as $wiz from './wiz';
 import adapt from './adapter';

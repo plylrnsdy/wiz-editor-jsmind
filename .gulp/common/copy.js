@@ -6,7 +6,7 @@ const
 /**
  * 复制文件
  *
- * @param {string} src 源目录
+ * @param {string} src 源文件
  * @param {string} dest 目标目录
  * @param {number} removedPrefix 去掉源目录的前缀目录个数
  * @returns gulp 处理函数

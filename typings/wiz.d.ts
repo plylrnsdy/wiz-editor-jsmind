@@ -2,7 +2,7 @@
 // Project: http://http://www.wiz.cn/
 // Definitions by: plylrnsdy <https://github.com/plylrnsdy>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.1
+// TypeScript Version: 2.8.1
 
 interface IWizEventDispatcher<T, U, V> {
     add(callback: (arg1: T, arg2: U, arg3: V) => void): void

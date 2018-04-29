@@ -1,3 +1,5 @@
+/// <reference path="../typings/wiz.d.ts" />
+
 (function () {
     let objApp = WizExplorerApp,
         objWindow = objApp.Window,
@@ -16,14 +18,14 @@
     let tempDir = createTempDir('Wiz.Editor.jsMind', objDocument.GUID),
         tempFile = tempDir + 'index.html',
         pluginDir = objApp.GetPluginPathByScriptFileName('jsmind_editor.js'),
-        resourceDir = pluginDir + 'editor',
+        resourceDir = pluginDir + 'editor/',
         templateFile = pluginDir + 'editor/index.html';
 
     // 处理编辑页中引用的资源路径
     let tempText = objCommon.LoadTextFromFile(templateFile)
         .replace(new RegExp(pluginDir.replace(/\\/g, '\\\\'), 'g'), '.') // 去掉 wiz 给 <script> 的文件路径加的前缀
-        .replace(/(<link href=")\./g, '$1' + resourceDir)
-        .replace(/(<script type="text\/javascript" src=")\./g, '$1' + resourceDir);
+        .replace(/(<link href=")(?:\.\/)?/g, '$1' + resourceDir)
+        .replace(/(<script type="text\/javascript" src=")(?:\.\/)?/g, '$1' + resourceDir);
 
     // 在缓存目录内，新建笔记编辑页
     // objDocument.SaveToHtml(tempFile, 0); // 可用于新建文件
