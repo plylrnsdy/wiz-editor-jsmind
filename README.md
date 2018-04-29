@@ -6,8 +6,8 @@ Wiz.Editor.jsMind 是一个基于 [jsMind][jsmind] 构建的为知笔记 思维�
 - 使用快捷键编辑思维导图
 
 ## 使用
-- 新建标题后缀为 .jm 的笔记，选择 Editor.jsMind 编辑器编辑
-- 节点可以插入 html 文本（比如要换行就输入&lt;br&gt;，等等）
+- 新建标题后缀为 `.jm` 的笔记，选择 Editor.jsMind 编辑器编辑
+- 节点可以插入 html 文本（比如要换行就输入`<br />`，等等）
 
 ## 配置
 工具栏选项按钮打开设置面板：
@@ -29,11 +29,13 @@ Clone 项目并安装开发依赖：
     cd wiz-editor-jsmind
     npm install
 
-构建项目：
+构建项目，生成项目至 `out/src/`：
 
     gulp wiz-build
 
-插件生成到 out/src 中，将其中的文件复制到 `%My Knowledge%/Plugins/Wiz.Editor.jsMind` 下，运行 Wiz 就可以使用了。
+打包项目，生成插件包至 `out/`：
+
+    gulp wiz-pack
 
 ## 更新日志
 [Change Logs](./CHANGELOG.md)
