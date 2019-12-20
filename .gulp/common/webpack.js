@@ -10,7 +10,7 @@ module.exports = (configPath, isWatch = false) => {
             webpack(
                 require(configPath),
                 // callback 是为了让 gulp 异步任务不阻塞
-                (err, stats) => callback()
+                (err, stats) => { logger(err, stats); callback(); }
             )
         };
     else

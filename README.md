@@ -31,11 +31,11 @@ Clone 项目并安装开发依赖：
 
 构建项目，生成项目至 `out/src/`：
 
-    gulp wiz-build
+    npm run build
 
 打包项目，生成插件包至 `out/`：
 
-    gulp wiz-pack
+    npm run pack
 
 ## 更新日志
 [Change Logs](./CHANGELOG.md)

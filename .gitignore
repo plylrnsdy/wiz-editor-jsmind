@@ -1,5 +1,5 @@
 .others
 .vscode
-*.lnk
+bin
 out
 node_modules
