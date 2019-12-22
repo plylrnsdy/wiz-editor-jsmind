@@ -23,6 +23,9 @@ Q：在 PC 上能查看 jm 导图，在手机端却只能看到文字。
 A：jm 导图目前依赖插件渲染，无法单独查看。
 
 ## 开发
+
+需要安装 Node.js v8.x
+
 Clone 项目并安装开发依赖：
 
     git clone https://github.com/plylrnsdy/wiz-editor-jsmind

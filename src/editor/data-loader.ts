@@ -16,23 +16,23 @@ export let saveMindmap = noop as (theme: string, mindmap: object) => void;
 
 let docStr;
 if (editable) {
-    let $db = $wiz.database(query['kbguid'] as string),
-        $doc = $db.document(query['guid'] as string);
+  let $db = $wiz.database(query['kbguid'] as string),
+    $doc = $db.document(query['guid'] as string);
 
-    document.title = '编辑 ' + $doc.title().replace(/\.jm$/, '');
-    docStr = $doc.html() as string;
+  document.title = '编辑 ' + $doc.title().replace(/\.jm$/, '');
+  docStr = $doc.html() as string;
 
-    saveSetting = function (setting: object) {
-        $settingFile.text(JSON.stringify(setting));
-    }
-    saveMindmap = function (theme: string, mindmap: object) {
-        $doc.html('<!DOCTYPE html><html><head></head><body><div id="app"></div><div id="data" data-theme="' + theme + '" data-mindmap="' + utils.encodeHTML(JSON.stringify(mindmap)) + '" style="display: none;"></div></body></html>');
-    }
+  saveSetting = function (setting: object) {
+    $settingFile.text(JSON.stringify(setting));
+  }
+  saveMindmap = function (theme: string, mindmap: object) {
+    $doc.html('<!DOCTYPE html><html><head></head><body><div id="app"></div><div id="data" data-theme="' + theme + '" data-mindmap="' + utils.encodeHTML(JSON.stringify(mindmap)) + '" style="display: none;"></div></body></html>');
+  }
 }
 adapt(docStr);
 
 let pluginPath = $wiz.path('jsmind_editor.js'),
-    $settingFile = $wiz.file(pluginPath + 'setting.json');
+  $settingFile = $wiz.file(pluginPath + 'setting.json');
 export let setting = JSON.parse($settingFile.text() as string);
 
 let dataElem = document.getElementById('data');

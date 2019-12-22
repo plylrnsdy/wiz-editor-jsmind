@@ -1,9 +1,9 @@
 import { parse } from 'querystring';
 
 export function queryObject(url: string) {
-    return url.indexOf('?') > -1
-        ? parse(url.match(/\?(.+)$/)[1])
-        : {};
+  return url.indexOf('?') > -1
+    ? parse(url.match(/\?(.+)$/)[1])
+    : {};
 }
 
 /**
@@ -12,13 +12,13 @@ export function queryObject(url: string) {
  * @return {string} html
  */
 export function encodeHTML(str: string): string {
-    // let div = document.createElement('div');
-    // div.appendChild(document.createTextNode(str));
-    // return div.innerHTML;
+  // let div = document.createElement('div');
+  // div.appendChild(document.createTextNode(str));
+  // return div.innerHTML;
 
-    return str.replace(/"/g, '&quot;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
+  return str.replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 /**
@@ -27,7 +27,7 @@ export function encodeHTML(str: string): string {
  * @return {string} str
  */
 export function decodeHTML(html: string): string {
-    let div = document.createElement('div');
-    div.innerHTML = html;
-    return div.innerText || div.textContent;
+  let div = document.createElement('div');
+  div.innerHTML = html;
+  return div.innerText || div.textContent;
 }

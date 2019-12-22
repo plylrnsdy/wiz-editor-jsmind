@@ -13,6 +13,6 @@ fontawesome.library.add(faSave, faCogs, faInfo);
 Vue.use(Element);
 
 const app = new Vue({
-    el: '#app',
-    render: h => h(App)
+  el: '#app',
+  render: h => h(App)
 });
