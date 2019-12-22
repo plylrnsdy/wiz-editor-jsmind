@@ -25,7 +25,7 @@ if (editable) {
   saveSetting = function (setting: object) {
     $settingFile.text(JSON.stringify(setting));
   }
-  saveMindmap = function (theme: string, mindmap: object) {
+  saveMindmap = function (theme: string = 'primary', mindmap: object = {}) {
     $doc.html('<!DOCTYPE html><html><head></head><body><div id="app"></div><div id="data" data-theme="' + theme + '" data-mindmap="' + utils.encodeHTML(JSON.stringify(mindmap)) + '" style="display: none;"></div></body></html>');
   }
 }
@@ -36,5 +36,5 @@ let pluginPath = $wiz.path('jsmind_editor.js'),
 export let setting = JSON.parse($settingFile.text() as string);
 
 let dataElem = document.getElementById('data');
-export let theme = dataElem.getAttribute('data-theme');
-export let mindmap = JSON.parse(utils.decodeHTML(dataElem.getAttribute('data-mindmap')));
+export let theme = dataElem.getAttribute('data-theme') || 'primary';
+export let mindmap = JSON.parse(utils.decodeHTML(dataElem.getAttribute('data-mindmap') || '{}'));
