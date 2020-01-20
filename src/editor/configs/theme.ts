@@ -1,0 +1,17 @@
+export default [
+  { value: 'pomegranate', label: 'pomegranate' },
+  { value: 'danger', label: 'danger' },
+  { value: 'warning', label: 'warning' },
+  { value: 'pumpkin', label: 'pumpkin' },
+  { value: 'orange', label: 'orange' },
+  { value: 'success', label: 'success' },
+  { value: 'nephrite', label: 'nephrite' },
+  { value: 'greensea', label: 'greensea' },
+  { value: 'info', label: 'info' },
+  { value: 'belizehole', label: 'belizehole' },
+  { value: 'primary', label: 'primary' },
+  { value: 'asphalt', label: 'asphalt' },
+  { value: 'wisteria', label: 'wisteria' },
+  { value: 'clouds', label: 'clouds' },
+  { value: 'asbestos', label: 'asbestos' },
+];

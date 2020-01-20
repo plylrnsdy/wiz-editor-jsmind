@@ -2,7 +2,7 @@ import { parse } from 'querystring';
 
 export function queryObject(url: string) {
   return url.indexOf('?') > -1
-    ? parse(url.match(/\?(.+)$/)[1])
+    ? parse((url.match(/\?(.+)$/) || [])[1] || '')
     : {};
 }
 
@@ -27,7 +27,7 @@ export function encodeHTML(str: string): string {
  * @return {string} str
  */
 export function decodeHTML(html: string): string {
-  let div = document.createElement('div');
+  const div = document.createElement('div');
   div.innerHTML = html;
-  return div.innerText || div.textContent;
+  return div.innerText || div.textContent || '';
 }

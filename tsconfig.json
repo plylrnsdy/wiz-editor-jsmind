@@ -2,17 +2,42 @@
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "out",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
 
-    "module": "umd",
-    "target": "es5",
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
 
-    "sourceMap": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "types": [
+      "webpack-env"
+    ],
 
-    "removeComments": true
+    "removeComments": true,
+    "sourceMap": false
   },
   "include": [
-    "src/*.ts",
-    "test/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
   ],
   "exclude": [
     ".gulp",

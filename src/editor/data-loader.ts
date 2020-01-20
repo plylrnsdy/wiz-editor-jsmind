@@ -1,5 +1,3 @@
-/// <reference path="../../typings/require.d.ts" />
-
 import * as $wiz from './wiz';
 import adapt from './adapter';
 import * as utils from './utils';
@@ -31,10 +29,12 @@ if (editable) {
 }
 adapt(docStr);
 
-let pluginPath = $wiz.path('jsmind_editor.js'),
-  $settingFile = $wiz.file(pluginPath + 'setting.json');
+const pluginPath = $wiz.path('jsmind_editor.js');
+const $settingFile = $wiz.file(pluginPath + 'setting.json');
 export let setting = JSON.parse($settingFile.text() as string);
 
-let dataElem = document.getElementById('data');
+const dataElem = document.getElementById('data') || document.createElement('div');
 export let theme = dataElem.getAttribute('data-theme') || 'primary';
-export let mindmap = JSON.parse(utils.decodeHTML(dataElem.getAttribute('data-mindmap') || '{}'));
+
+const data = dataElem.getAttribute('data-mindmap') || '{}';
+export let mindmap = JSON.parse(utils.decodeHTML(data));

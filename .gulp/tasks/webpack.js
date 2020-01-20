@@ -1,12 +1,16 @@
-const gulp = require('gulp'),
-    clean = require('../common/clean'),
-    webpack = require('../common/webpack'),
-    PATH = require('../config');
+const gulp = require('gulp')
+const clean = require('../common/clean')
+const webpack = require('../common/webpack')
 
-// 主任务
-gulp.task('webpack-build', webpack('../../webpack.config.prod'));
-gulp.task('webpack', webpack('../../webpack.config.dev'));
-gulp.task('webpack-watch', ['webpack-clean'], webpack('../../webpack.config.dev', true));
+const PATH = require('../config')
+const WEBPACK_CONFIG = require('@vue/cli-service/webpack.config')
 
-// 子任务
-gulp.task('webpack-clean', clean(PATH.webpack.dest));
+
+exports['webpack-build'] = webpack(WEBPACK_CONFIG)
+
+exports['webpack'] = webpack(WEBPACK_CONFIG)
+
+exports['webpack-watch'] = gulp.series(
+  clean(PATH.webpack.dest),
+  webpack(WEBPACK_CONFIG, true)
+)

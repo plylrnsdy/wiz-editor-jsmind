@@ -2,14 +2,16 @@
 
 class JsMindReader {
   private name: string;
-  private thisPluginDir: string;
+  private thisPluginDir: string = '';
   private thisFileName: string;
-  private document: HTMLDocument;
+  private document: HTMLDocument | null = null;
 
   constructor(private objApp: IWizExplorerApp | IWizHtmlEditorApp) {
     this.name = 'Wiz.Editor.jsMind';
     this.thisFileName = 'jsmind_reader.js';
   }
+
+  /** 插件目录 */
   get directory(): string {
     if (!this.thisPluginDir)
       try {
@@ -19,27 +21,35 @@ class JsMindReader {
       }
     return this.thisPluginDir;
   }
+
+  /** jsmind_reader.js 的绝对路径 */
   get path(): string {
     return this.directory + this.thisFileName;
   }
+
   render(document: HTMLDocument): void {
     this.document = document;
     if (this.isJsMind()) {
-      this.document.title = this.document.title.replace(/\.jm/gi, '');
-      this.document.head.appendChild(this.createLinkElement('editor/styles.css'));
-      this.document.head.appendChild(this.createScriptElement('editor/index.bundle.js'));
+      document.title = document.title.replace(/\.jm$/i, '');
+      document.head.appendChild(this.createLinkElement('editor/css/styles.css'));
+      document.head.appendChild(this.createScriptElement('editor/index.bundle.js'));
     }
   }
+
+  /** 当前文件是否 .jm 文件 */
   private isJsMind(): boolean {
-    let title = this.document.title;
-    return title && title.match(/\.jm(?: |@)?.*?$/i) ? true : false;
+    const { title } = this.document!;
+    return !!title && /\.jm(?: |@)?.*?$/i.test(title);
   }
+
   private createElement(tag: string, props): HTMLElement {
-    let elem = this.document.createElement(tag);
-    for (let name in props)
+    const elem = this.document!.createElement(tag);
+    for (const name in props) {
       elem.setAttribute(name, props[name]);
+    }
     return elem;
   }
+
   private createLinkElement(rPath: string): HTMLElement {
     return this.createElement('link', {
       type: 'text/css',
@@ -47,12 +57,15 @@ class JsMindReader {
       rel: 'stylesheet'
     });
   }
+
   private createScriptElement(rPath: string): HTMLElement {
     return this.createElement('script', {
       type: 'text/javascript',
       src: this.toFullPath(rPath)
     });
   }
+
+  /** 相对插件目录的路径转为绝对路径 */
   private toFullPath(rPath: string): string {
     return (this.directory + rPath).replace(/\\/g, '/');
   }
@@ -61,8 +74,8 @@ class JsMindReader {
 ; (function () {
   try { // in Global
     function handleDocumentComplete(arg: HTMLDocument | IWizDocument | IWizChromeBrowser) {
-      let doc: HTMLDocument,
-        reader = new JsMindReader(objApp);
+      const reader = new JsMindReader(objApp);
+      let doc: HTMLDocument;
       if (!arg || !('title' in arg) || 'GUID' in arg) { // ^4.4
         doc = objWindow.CurrentDocumentHtmlDocument;
       } else { // ^4.2

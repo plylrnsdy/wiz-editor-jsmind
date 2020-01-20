@@ -5,6 +5,6 @@ declare interface JsMindStatic {
 declare interface JsMind {
   options: Record<string, any>;
   resize(): void;
-  set_theme(): void;
+  set_theme(theme: string): void;
   get_data(format: string): any;
 }
