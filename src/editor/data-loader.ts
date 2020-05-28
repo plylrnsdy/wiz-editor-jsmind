@@ -34,7 +34,9 @@ const $settingFile = $wiz.file(pluginPath + 'setting.json');
 export let setting = JSON.parse($settingFile.text() as string);
 
 const dataElem = document.getElementById('data') || document.createElement('div');
-export let theme = dataElem.getAttribute('data-theme') || 'primary';
+const attrData = dataElem.getAttribute('data-theme')
+export let theme = (attrData !== 'undefined' && attrData) || 'primary';
 
-const data = dataElem.getAttribute('data-mindmap') || '{}';
+const attrMindmap = dataElem.getAttribute('data-mindmap')
+const data = (attrMindmap !== 'undefined' && attrMindmap) || '{}';
 export let mindmap = JSON.parse(utils.decodeHTML(data));

@@ -1,6 +1,6 @@
 {
   "name": "wiz-editor-jsmind",
-  "version": "0.3.14",
+  "version": "0.3.15",
   "private": true,
   "description": "A mindmap plugin based on JSMind for WizNote.",
   "keywords": [],
